@@ -14,60 +14,94 @@ import SplashPage from "./pages/SplashPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
-import WhatIsPage from "./pages/WhatIs";
+import WhatIsPage from "./pages/WhatIsPage";
+import ProfilePage from "./pages/ProfilePage"
+import NonUserPage from "./pages/NonUserPage";
+import { YellowBox } from 'react-native';
+
+YellowBox.ignoreWarnings([
+  'Non-serializable values were found in the navigation state',
+]);
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [userToken, onTokenChange] = React.useState(null);
+
   return (
-    <>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <Stack.Navigator headerMode="float">
-            <Stack.Screen name="splash" component={SplashPage} options={{ headerShown: false }}/>
-            <Stack.Screen 
-              name="login" 
-              component={LoginPage} 
-              options={{ 
-                headerBackTitleVisible: false, 
-                cardShadowEnabled: false,
-                headerTintColor: "black",
-                title: "Login"
-              }}
-            />
-            <Stack.Screen 
-              name="register" 
-              component={RegisterPage} 
-              options={{ 
-                headerBackTitleVisible: false, 
-                cardShadowEnabled: false,
-                headerTintColor: "black",
-                title: "Register"
-              }}
-            />
-            <Stack.Screen 
-              name="home" 
-              component={HomePage} 
-              options={{ 
-                headerBackTitleVisible: false, 
-                cardShadowEnabled: false,
-                headerTintColor: "black",
-                title: null
-              }}
-            />
-            <Stack.Screen 
-              name="whatis" 
-              component={WhatIsPage} 
-              options={{ 
-                headerBackTitleVisible: false, 
-                cardShadowEnabled: false,
-                headerTintColor: "black",
-                title: "Learn More"
-              }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </SafeAreaProvider>
-    </>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator headerMode="float">
+          {userToken == null ?
+            <>
+              <Stack.Screen
+                name="splash"
+                component={SplashPage}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="login"
+                component={LoginPage}
+                options={{
+                  headerBackTitleVisible: false,
+                  headerTintColor: "#000",
+                  title: "Login"
+                }}
+                initialParams={{ loginFunc: onTokenChange }}
+              />
+              <Stack.Screen
+                name="register"
+                component={RegisterPage}
+                options={{
+                  headerBackTitleVisible: false,
+                  headerTintColor: "#000",
+                  title: "Register"
+                }}
+              />
+              <Stack.Screen
+                name="whatis"
+                component={WhatIsPage}
+                options={{
+                  headerBackTitleVisible: false,
+                  headerTintColor: "#000",
+                  title: "Learn More"
+                }}
+              />
+            </>
+            :
+            <>
+              <Stack.Screen
+                name="home"
+                component={HomePage}
+                options={{
+                  headerBackTitleVisible: false,
+                  headerTintColor: "#000",
+                  title: "Feedback",
+                }}
+              />
+              <Stack.Screen
+                name="profile"
+                component={ProfilePage}
+                options={{
+                  headerBackTitleVisible: false,
+                  headerTintColor: "#000",
+                  title: "Profile",
+                }}
+              />
+              <Stack.Screen
+                name="nonuser"
+                component={NonUserPage}
+                options={{
+                  headerBackTitleVisible: false,
+                  headerTintColor: "#000",
+                  title: "Non-user request",
+                }}
+              />
+            </>
+          }
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };

@@ -34,8 +34,9 @@ function SplashPage({ navigation }) {
               />
               <Button
                 title="Register"
-                type="solid"
-                buttonStyle={{ backgroundColor: "black", marginTop: 10, width: 200 }}
+                type="outline"
+                buttonStyle={{ borderColor: "#000", marginTop: 10, width: 200, borderWidth: 1 }}
+                titleStyle={{ color: "#000"}}
                 onPress={() => navigation.navigate("register")}
               />
               <TouchableOpacity style={styles.whatIsButton} onPress={() => navigation.navigate('whatis')}>
@@ -51,7 +52,7 @@ function SplashPage({ navigation }) {
 
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: "white",
+    backgroundColor: "#fff",
     height: "100%"
   },
   sectionContainer: {
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   sectionTitle: {
-    fontSize: 40,
+    fontSize: 45,
     fontWeight: '600',
     color: "black",
     textAlign: "center"

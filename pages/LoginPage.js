@@ -12,14 +12,12 @@ import {
   View,
   Text,
   TextInput,
-  Picker,
-  Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button } from 'react-native-elements';
 
 
-function LoginPage({ navigation }) {
+function LoginPage({ navigation, route }) {
   const [inst, onChangeInst] = React.useState(null);
   const [user, onChangeUser] = React.useState(null);
   const [pass, onChangePass] = React.useState(null);
@@ -72,7 +70,7 @@ function LoginPage({ navigation }) {
                 title="Login"
                 type="solid"
                 buttonStyle={{ backgroundColor: "black", marginTop: 30, width: 200 }}
-                onPress={() => navigation.navigate("home")}
+                onPress={() => route.params.loginFunc(true)}
               />
             </View>
           </View>
