@@ -18,7 +18,7 @@ import { Icon, Button } from 'react-native-elements'
 
 
 
-function ProfilePage({ navigation, route }) {
+function GivePage({ navigation, route }) {
   return (
     <>
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1, alignItems: "center" }}>
@@ -66,4 +66,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ProfilePage;
+export default GivePage;

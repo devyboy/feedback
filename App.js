@@ -17,6 +17,8 @@ import HomePage from "./pages/HomePage";
 import WhatIsPage from "./pages/WhatIsPage";
 import ProfilePage from "./pages/ProfilePage"
 import NonUserPage from "./pages/NonUserPage";
+import SearchPage from "./pages/SearchPage";
+import PersonPage from "./pages/PersonPage";
 import { YellowBox } from 'react-native';
 
 YellowBox.ignoreWarnings([
@@ -96,6 +98,24 @@ export default function App() {
                   headerBackTitleVisible: false,
                   headerTintColor: "#000",
                   title: "Non-user request",
+                }}
+              />
+              <Stack.Screen
+                name="search"
+                component={SearchPage}
+                options={{
+                  headerBackTitleVisible: false,
+                  headerTintColor: "#000",
+                  title: "Give Feedback",
+                }}
+              />
+              <Stack.Screen
+                name="person"
+                component={PersonPage}
+                options={{
+                  headerBackTitleVisible: false,
+                  headerTintColor: "#000",
+                  title: "Give Feedback",
                 }}
               />
             </>

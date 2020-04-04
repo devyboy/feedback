@@ -38,16 +38,18 @@ function HomePage({ navigation, route }) {
     <>
       <SafeAreaView style={{ backgroundColor: "#fff", flex: 1, alignItems: "center" }}>
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Welcome back.</Text>
+          <Text style={styles.sectionTitle}>Hello Devon.</Text>
           <View style={styles.sectionDescription}>
             <Button
-              title="Give Feedback"
               type="solid"
+              title="Give Feedback"
+              onPress={() => navigation.navigate("search")}
               buttonStyle={{ backgroundColor: "#000", marginTop: 20, width: 200 }}
             />
             <Button
-              title="Request Feedback"
               type="solid"
+              title="Request Feedback"
+              onPress={() => navigation.navigate("")}
               buttonStyle={{ backgroundColor: "#000", marginTop: 15, width: 200 }}
             />
             <Button
