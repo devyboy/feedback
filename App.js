@@ -10,21 +10,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import SplashPage from "./pages/SplashPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import HomePage from "./pages/HomePage";
-import WhatIsPage from "./pages/WhatIsPage";
-import ProfilePage from "./pages/ProfilePage"
-import NonUserPage from "./pages/NonUserPage";
-import SearchPage from "./pages/SearchPage";
-import PersonPage from "./pages/PersonPage";
+import SplashPage from './pages/SplashPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import HomePage from './pages/HomePage';
+import WhatIsPage from './pages/WhatIsPage';
+import ProfilePage from './pages/ProfilePage';
+import NonUserPage from './pages/NonUserPage';
+import SearchPage from './pages/SearchPage';
+import PersonPage from './pages/PersonPage';
 import { YellowBox } from 'react-native';
 
 YellowBox.ignoreWarnings([
-  'Non-serializable values were found in the navigation state',
+  'Non-serializable values were found in the navigation state'
 ]);
-
 
 const Stack = createStackNavigator();
 
@@ -34,94 +33,94 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Stack.Navigator headerMode="float">
-          {userToken == null ?
+        <Stack.Navigator headerMode='float'>
+          {userToken == null ? (
             <>
               <Stack.Screen
-                name="splash"
+                name='splash'
                 component={SplashPage}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="login"
+                name='login'
                 component={LoginPage}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTintColor: "#000",
-                  title: "Login"
+                  headerTintColor: '#000',
+                  title: 'Login'
                 }}
                 initialParams={{ loginFunc: onTokenChange }}
               />
               <Stack.Screen
-                name="register"
+                name='register'
                 component={RegisterPage}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTintColor: "#000",
-                  title: "Register"
+                  headerTintColor: '#000',
+                  title: 'Register'
                 }}
               />
               <Stack.Screen
-                name="whatis"
+                name='whatis'
                 component={WhatIsPage}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTintColor: "#000",
-                  title: "Learn More"
+                  headerTintColor: '#000',
+                  title: 'Learn More'
                 }}
               />
             </>
-            :
+          ) : (
             <>
               <Stack.Screen
-                name="home"
+                name='home'
                 component={HomePage}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTintColor: "#000",
-                  title: "Feedback",
+                  headerTintColor: '#000',
+                  title: 'Feedback'
                 }}
               />
               <Stack.Screen
-                name="profile"
+                name='profile'
                 component={ProfilePage}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTintColor: "#000",
-                  title: "Profile",
+                  headerTintColor: '#000',
+                  title: 'Profile'
                 }}
               />
               <Stack.Screen
-                name="nonuser"
+                name='nonuser'
                 component={NonUserPage}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTintColor: "#000",
-                  title: "Non-user request",
+                  headerTintColor: '#000',
+                  title: 'Non-user request'
                 }}
               />
               <Stack.Screen
-                name="search"
+                name='search'
                 component={SearchPage}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTintColor: "#000",
-                  title: "Give Feedback",
+                  headerTintColor: '#000',
+                  title: 'Give Feedback'
                 }}
               />
               <Stack.Screen
-                name="person"
+                name='person'
                 component={PersonPage}
                 options={{
                   headerBackTitleVisible: false,
-                  headerTintColor: "#000",
-                  title: "Give Feedback",
+                  headerTintColor: '#000',
+                  title: 'Give Feedback'
                 }}
               />
             </>
-          }
+          )}
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
   );
-};
+}
